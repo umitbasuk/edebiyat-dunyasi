@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edebiyat Sitesi Neden Var? | Edebiyat Dünyası</title>
+    <style>
+        /* ANA TEMA (index.html ile aynı) */
+        :root {
+            --kirmizi: #d10a11;
+            --siyah: #222;
+            --beyaz: #fff;
+            --gri: #f5f5f5;
+            --gri-koyu: #e0e0e0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            background: var(--gri);
+            color: var(--siyah);
+            line-height: 1.6;
+        }
+        
+        /* HEADER & NAV (index.html ile tutarlı) */
+        header, nav, .ust-menu, .logo {
+            /* index.html'deki stil aynen kopyalanacak */
+        }
+        
+        /* İÇERİK ALANI */
+        .icerik {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .icerik h1 {
+            color: var(--kirmizi);
+            margin-bottom: 30px;
+            font-size: 36px;
+            border-bottom: 2px solid var(--kirmizi);
+            padding-bottom: 10px;
+        }
+        .fayda-karti {
+            background: var(--beyaz);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .fayda-icon {
+            font-size: 32px;
+            color: var(--kirmizi);
+            min-width: 50px;
+            text-align: center;
+        }
+        .fayda-baslik {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--siyah);
+        }
+        
+        /* FOOTER (index.html ile aynı) */
+        footer {
+            /* index.html'deki stil aynen kopyalanacak */
+        }
+        
+        @media (max-width: 768px) {
+            .fayda-karti {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ÜST MENÜ (index.html ile aynı) -->
+    <div class="ust-menu">
+        <div class="ust-menu-container">
+            <div>Edebiyat, Kültür ve Sanat Portalı</div>
+            <div>Takip Edin: [Sosyal Medya İkonları]</div>
+        </div>
+    </div>
+    
+    <!-- LOGO -->
+    <div class="logo">EDEBİYAT DÜNYASI</div>
+    
+    <!-- NAVİGASYON (index.html ile aynı) -->
+    <nav>
+        <ul>
+            <li><a href="index.html">ANASAYFA</a></li>
+            <li><a href="edebiyat-nedir.html">EDEBİYAT</a></li>
+            <li><a href="site-amaci.html" class="aktif">SİTE NEDEN VAR?</a></li>
+            <li><a href="dunya-klasikleri.html">KLASİKLER</a></li>
+            <li><a href="cagdas-edebiyat.html">ÇAĞDAŞ ESERLER</a></li>
+            <li><a href="siir-ve-yazar.html">ŞİİR</a></li>
+            <li><a href="yasar-kemal.html">YAŞAR KEMAL</a></li>
+            <li><a href="nobel-odulu.html">NOBEL</a></li>
+        </ul>
+    </nav>
+    
+    <!-- İÇERİK -->
+    <main class="icerik">
+        <h1>Edebiyat Web Sitesi Ne İşe Yarar?</h1>
+        
+        <div class="fayda-karti">
+            <div class="fayda-icon">📚</div>
+            <div>
+                <h2 class="fayda-baslik">Bilgi Kaynağıdır</h2>
+                <p>Yazarlar, şairler, edebi dönemler, akımlar ve önemli eserler hakkında detaylı bilgiler sunar. Öğrenciler, öğretmenler ve edebiyat tutkunları için ideal bir kaynaktır.</p>
+            </div>
+        </div>
+        
+        <div class="fayda-karti">
+            <div class="fayda-icon">🔍</div>
+            <div>
+                <h2 class="fayda-baslik">Eser Analizleri Sunar</h2>
+                <p>Roman, hikâye, şiir ve tiyatro eserlerinin özetleri, karakter analizleri ve tematik incelemeleri bulunur.</p>
+            </div>
+        </div>
+        
+        <div class="fayda-karti">
+            <div class="fayda-icon">🤝</div>
+            <div>
+                <h2 class="fayda-baslik">Okuyucu ve Yazar Buluşma Noktasıdır</h2>
+                <p>Amatör yazarların şiir, hikâye veya denemelerini paylaşabilecekleri, okuyucuların ise yorum yaparak katkıda bulunabilecekleri bir platform sağlar.</p>
+            </div>
+        </div>
+        
+        <div class="fayda-karti">
+            <div class="fayda-icon">📢</div>
+            <div>
+                <h2 class="fayda-baslik">Güncel Haberler ve Etkinlikler</h2>
+                <p>Kitap fuarları, edebiyat yarışmaları ve yazar söyleşileri gibi etkinliklerin duyurularını yapar.</p>
+            </div>
+        </div>
+        
+        <div class="fayda-karti">
+            <div class="fayda-icon">🎓</div>
+            <div>
+                <h2 class="fayda-baslik">Eğitim İçin Destektir</h2>
+                <p>Lise ve üniversite düzeyinde edebiyat derslerine yönelik içerikler sunarak sınavlara hazırlıkta yardımcı olur.</p>
+            </div>
+        </div>
+    </main>
+    
+    <!-- FOOTER (index.html ile aynı) -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Hakkımızda</a>
+            <a href="#">İletişim</a>
+            <a href="#">Reklam</a>
+        </div>
+        <div class="copyright">
+            © 2023 Edebiyat Dünyası - Tüm hakları saklıdır
+        </div>
+    </footer>
+</body>
+</html>

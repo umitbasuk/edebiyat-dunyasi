@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şiir ve Yazar | Edebiyat Dünyası</title>
+    <style>
+        :root {
+            --kirmizi: #d10a11;
+            --siyah: #222;
+            --beyaz: #fff;
+            --gri: #f5f5f5;
+            --gri-koyu: #e0e0e0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            background: var(--gri);
+            color: var(--siyah);
+            line-height: 1.6;
+        }
+        
+        /* HEADER & NAV */
+        header, nav, .ust-menu, .logo {
+            /* index.html'deki stil aynen kopyalanacak */
+        }
+        
+        /* İÇERİK ALANI */
+        .icerik {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .icerik h1 {
+            color: var(--kirmizi);
+            margin-bottom: 30px;
+            font-size: 36px;
+            border-bottom: 2px solid var(--kirmizi);
+            padding-bottom: 10px;
+        }
+        .tanim-kutusu {
+            background: var(--beyaz);
+            border-left: 4px solid var(--kirmizi);
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* ŞİİR BÖLÜMÜ */
+        .siir-ozellikleri {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .siir-ozellik {
+            background: var(--beyaz);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .siir-ozellik h3 {
+            color: var(--kirmizi);
+            margin-bottom: 10px;
+        }
+        
+        /* ŞİİR ÖRNEKLERİ */
+        .siir-ornekleri {
+            margin: 40px 0;
+        }
+        .siir-karti {
+            background: var(--beyaz);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .siir-karti::before {
+            content: """;
+            font-size: 120px;
+            color: var(--kirmizi);
+            opacity: 0.05;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            line-height: 1;
+        }
+        .siir-icerik {
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .siir-bilgi {
+            text-align: right;
+            font-weight: bold;
+            color: var(--siyah);
+        }
+        
+        /* YAZAR BÖLÜMÜ */
+        .yazar-tanimi {
+            margin: 40px 0;
+        }
+        .yazar-karsilastirma {
+            background: var(--beyaz);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            font-weight: bold;
+            color: var(--kirmizi);
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .siir-ozellikleri {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ÜST MENÜ -->
+    <div class="ust-menu">
+        <div class="ust-menu-container">
+            <div>Edebiyat, Kültür ve Sanat Portalı</div>
+            <div>Takip Edin: [Sosyal Medya İkonları]</div>
+        </div>
+    </div>
+    
+    <!-- LOGO -->
+    <div class="logo">EDEBİYAT DÜNYASI</div>
+    
+    <!-- NAVİGASYON -->
+    <nav>
+        <ul>
+            <li><a href="index.html">ANASAYFA</a></li>
+            <li><a href="edebiyat-nedir.html">EDEBİYAT</a></li>
+            <li><a href="site-amaci.html">SİTE NEDEN VAR?</a></li>
+            <li><a href="dunya-klasikleri.html">KLASİKLER</a></li>
+            <li><a href="cagdas-edebiyat.html">ÇAĞDAŞ ESERLER</a></li>
+            <li><a href="siir-ve-yazar.html" class="aktif">ŞİİR</a></li>
+            <li><a href="yasar-kemal.html">YAŞAR KEMAL</a></li>
+            <li><a href="nobel-odulu.html">NOBEL</a></li>
+        </ul>
+    </nav>
+    
+    <!-- İÇERİK -->
+    <main class="icerik">
+        <h1>Şiir ve Yazar</h1>
+        
+        <!-- ŞİİR BÖLÜMÜ -->
+        <section>
+            <h2>Şiir Nedir?</h2>
+            <div class="tanim-kutusu">
+                <p>Şiir, duygu, düşünce, hayal ve izlenimlerin ölçülü, ahenkli ve imgesel bir dille anlatıldığı edebî türdür.</p>
+            </div>
+            
+            <h3>Şiirin Özellikleri</h3>
+            <div class="siir-ozellikleri">
+                <div class="siir-ozellik">
+                    <h3>Ahenk ve Ritim</h3>
+                    <p>Ölçü, kafiye, aliterasyon gibi unsurlarla oluşturulan müzikal yapı</p>
+                </div>
+                <div class="siir-ozellik">
+                    <h3>İmge ve Mecaz</h3>
+                    <p>Orijinal benzetmeler ve çağrışımlarla yüklü dil</p>
+                </div>
+                <div class="siir-ozellik">
+                    <h3>Yoğun Anlatım</h3>
+                    <p>Az sözle çok şey ifade etme becerisi</p>
+                </div>
+                <div class="siir-ozellik">
+                    <h3>Duygusallık</h3>
+                    <p>Sezgiyle anlaşılan, duygulara hitap eden yapı</p>
+                </div>
+            </div>
+            
+            <h3>Önemli Şairler</h3>
+            <ul>
+                <li><strong>Tasavvufi Şiir:</strong> Mevlana, Yunus Emre</li>
+                <li><strong>Divan Şiiri:</strong> Fuzuli, Baki</li>
+                <li><strong>Modern Türk Şiiri:</strong> Nazım Hikmet, Cemal Süreya, Turgut Uyar</li>
+                <li><strong>Dünya Şiiri:</strong> William Blake, Pablo Neruda, Rimbaud</li>
+            </ul>
+            
+            <div class="siir-ornekleri">
+                <h3>Şiir Örnekleri</h3>
+                
+                <div class="siir-karti">
+                    <div class="siir-icerik">
+                        <p>Gel, ne olursan ol yine gel,<br>
+                        İster kafir, ister mecusi,<br>
+                        İster puta tapan ol yine gel.<br>
+                        Bizim dergahımız ümitsizlik dergahı değildir,<br>
+                        Yüz kere tövbeni bozmuş olsan da yine gel...</p>
+                    </div>
+                    <div class="siir-bilgi">- Mevlana</div>
+                </div>
+                
+                <div class="siir-karti">
+                    <div class="siir-icerik">
+                        <p>Ben bir ceviz ağacıyım Gülhane Parkı'nda,<br>
+                        Ne sen bunun farkındasın, ne polis farkında.<br>
+                        Ben bir ceviz ağacıyım Gülhane Parkı'nda,<br>
+                        Yapraklarım suda balık gibi kıvıl kıvıl.</p>
+                    </div>
+                    <div class="siir-bilgi">- Nazım Hikmet</div>
+                </div>
+                
+                <div class="siir-karti">
+                    <div class="siir-icerik">
+                        <p>Seni düşünürken<br>
+                        Bir çakıl taşı ısınır içimde<br>
+                        Bir kuş gelir yüreğimin ucuna konar<br>
+                        Bir gelincik açılır ansızın<br>
+                        Bir gelincik sinsi sinsi kanar</p>
+                    </div>
+                    <div class="siir-bilgi">- Cemal Süreya</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- YAZAR BÖLÜMÜ -->
+        <section class="yazar-tanimi">
+            <h2>Yazar Nedir? Kime Yazar Denir?</h2>
+            <div class="tanim-kutusu">
+                <p>Yazar, düşünce, duygu veya hayal gücünü yazılı ifadeye döken, bunu bir metin haline getiren kişidir.</p>
+            </div>
+            
+            <h3>Yazarlığın Özellikleri</h3>
+            <ul>
+                <li>Kurgu ya da gerçek olayları anlatabilir</li>
+                <li>Roman, hikâye, deneme, makale, biyografi gibi türlerde eser verir</li>
+                <li>Dili etkili, düzenli ve anlamlı şekilde kullanma yeteneği vardır</li>
+                <li>Yazar, sadece yazan değil; okuyan, gözlemleyen ve düşünen kişidir</li>
+            </ul>
+            
+            <div class="yazar-karsilastirma">
+                Her yazar şair olmayabilir, ama her şair aynı zamanda yazardır.
+            </div>
+        </section>
+    </main>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Hakkımızda</a>
+            <a href="#">İletişim</a>
+            <a href="#">Reklam</a>
+        </div>
+        <div class="copyright">
+            © 2023 Edebiyat Dünyası - Tüm hakları saklıdır
+        </div>
+    </footer>
+</body>
+</html>

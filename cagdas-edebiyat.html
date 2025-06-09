@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çağdaş Eserler | Edebiyat Dünyası</title>
+    <style>
+        /* ANA TEMA (index.html ile aynı) */
+        :root {
+            --kirmizi: #d10a11;
+            --siyah: #222;
+            --beyaz: #fff;
+            --gri: #f5f5f5;
+            --gri-koyu: #e0e0e0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            background: var(--gri);
+            color: var(--siyah);
+            line-height: 1.6;
+        }
+        
+        /* HEADER & NAV (index.html ile tutarlı) */
+        header, nav, .ust-menu, .logo {
+            /* index.html'deki stil aynen kopyalanacak */
+        }
+        
+        /* İÇERİK ALANI */
+        .icerik {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .icerik h1 {
+            color: var(--kirmizi);
+            margin-bottom: 30px;
+            font-size: 36px;
+            border-bottom: 2px solid var(--kirmizi);
+            padding-bottom: 10px;
+        }
+        
+        /* YAZAR KARTLARI */
+        .yazarlar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .yazar-karti {
+            background: var(--beyaz);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .yazar-karti:hover {
+            transform: translateY(-5px);
+        }
+        .yazar-resim {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        .yazar-bilgi {
+            padding: 25px;
+        }
+        .yazar-baslik {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--kirmizi);
+        }
+        .yazar-ulke {
+            display: inline-block;
+            background: var(--gri-koyu);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .yazar-eserler {
+            margin-top: 15px;
+            font-style: italic;
+            color: #555;
+        }
+        
+        /* FOOTER (index.html ile aynı) */
+        footer {
+            /* index.html'deki stil aynen kopyalanacak */
+        }
+        
+        @media (max-width: 768px) {
+            .yazarlar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ÜST MENÜ (index.html ile aynı) -->
+    <div class="ust-menu">
+        <div class="ust-menu-container">
+            <div>Edebiyat, Kültür ve Sanat Portalı</div>
+            <div>Takip Edin: [Sosyal Medya İkonları]</div>
+        </div>
+    </div>
+    
+    <!-- LOGO -->
+    <div class="logo">EDEBİYAT DÜNYASI</div>
+    
+    <!-- NAVİGASYON (index.html ile aynı) -->
+    <nav>
+        <ul>
+            <li><a href="index.html">ANASAYFA</a></li>
+            <li><a href="edebiyat-nedir.html">EDEBİYAT</a></li>
+            <li><a href="site-amaci.html">SİTE NEDEN VAR?</a></li>
+            <li><a href="dunya-klasikleri.html">KLASİKLER</a></li>
+            <li><a href="cagdas-edebiyat.html" class="aktif">ÇAĞDAŞ ESERLER</a></li>
+            <li><a href="siir-ve-yazar.html">ŞİİR</a></li>
+            <li><a href="yasar-kemal.html">YAŞAR KEMAL</a></li>
+            <li><a href="nobel-odulu.html">NOBEL</a></li>
+        </ul>
+    </nav>
+    
+    <!-- İÇERİK -->
+    <main class="icerik">
+        <h1>Çağdaş Edebiyatın Öne Çıkan İsimleri</h1>
+        <p>21. yüzyılın en etkili yazarları ve eserleri. Modern dünya edebiyatından önemli isimler.</p>
+        
+        <div class="yazarlar-grid">
+            <!-- 1. YAZAR -->
+            <div class="yazar-karti">
+                <div class="yazar-resim" style="background-image: url('images/orhan-pamuk.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h2 class="yazar-baslik">Orhan Pamuk</h2>
+                    <span class="yazar-ulke">Türkiye</span>
+                    <p>Nobel ödüllü yazar, postmodern romanın ustası. İstanbul'un ruhunu eserlerine yansıtıyor.</p>
+                    <div class="yazar-eserler">
+                        <strong>Önemli Eserler:</strong> Kar, Masumiyet Müzesi, Benim Adım Kırmızı
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2. YAZAR -->
+            <div class="yazar-karti">
+                <div class="yazar-resim" style="background-image: url('images/elif-safak.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h2 class="yazar-baslik">Elif Şafak</h2>
+                    <span class="yazar-ulke">Türkiye/İngiltere</span>
+                    <p>Çok kültürlü temaları ve güçlü kadın karakterleriyle tanınan uluslararası üne sahip yazar.</p>
+                    <div class="yazar-eserler">
+                        <strong>Önemli Eserler:</strong> Aşk, Ustam ve Ben, 10 Dakika 38 Saniye
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3. YAZAR -->
+            <div class="yazar-karti">
+                <div class="yazar-resim" style="background-image: url('images/murakami.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h2 class="yazar-baslik">Haruki Murakami</h2>
+                    <span class="yazar-ulke">Japonya</span>
+                    <p>Büyülü gerçekçilik ve modern Japon kültürünü harmanlayan eşsiz üslubuyla dünya çapında üne kavuştu.</p>
+                    <div class="yazar-eserler">
+                        <strong>Önemli Eserler:</strong> 1Q84, Sahilde Kafka, Renksiz Tsukuru Tazaki'nin Hac Yılları
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 4. YAZAR -->
+            <div class="yazar-karti">
+                <div class="yazar-resim" style="background-image: url('images/margaret-atwood.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h2 class="yazar-baslik">Margaret Atwood</h2>
+                    <span class="yazar-ulke">Kanada</span>
+                    <p>Distopya türünün öncülerinden, feminist edebiyatın en güçlü kalemlerinden biri.</p>
+                    <div class="yazar-eserler">
+                        <strong>Önemli Eserler:</strong> Damızlık Kızın Öyküsü, Kör Suikastçı, Antilop ve Flurya
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 5. YAZAR -->
+            <div class="yazar-karti">
+                <div class="yazar-resim" style="background-image: url('images/jose-saramago.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h2 class="yazar-baslik">José Saramago</h2>
+                    <span class="yazar-ulke">Portekiz</span>
+                    <p>1998 Nobel Edebiyat Ödülü sahibi, alegorik anlatımı ve insan doğasına dair derin gözlemleriyle tanınır.</p>
+                    <div class="yazar-eserler">
+                        <strong>Önemli Eserler:</strong> Körlük, Görmek, Ölüm Bir Varmış Bir Yokmuş
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 6. YAZAR -->
+            <div class="yazar-karti">
+                <div class="yazar-resim" style="background-image: url('images/ahmet-umit.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h2 class="yazar-baslik">Ahmet Ümit</h2>
+                    <span class="yazar-ulke">Türkiye</span>
+                    <p>Polisiye türünde tarih ve felsefeyi harmanlayan özgün eserleriyle Türk edebiyatının en çok okunan yazarlarından.</p>
+                    <div class="yazar-eserler">
+                        <strong>Önemli Eserler:</strong> İstanbul Hatırası, Beyoğlu'nun En Güzel Abisi, Bab-ı Esrar
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- FOOTER (index.html ile aynı) -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Hakkımızda</a>
+            <a href="#">İletişim</a>
+            <a href="#">Reklam</a>
+        </div>
+        <div class="copyright">
+            © 2023 Edebiyat Dünyası - Tüm hakları saklıdır
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaşar Kemal | Edebiyat Dünyası</title>
+    <style>
+        :root {
+            --kirmizi: #d10a11;
+            --siyah: #222;
+            --beyaz: #fff;
+            --gri: #f5f5f5;
+            --gri-koyu: #e0e0e0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            background: var(--gri);
+            color: var(--siyah);
+            line-height: 1.6;
+        }
+        
+        /* HEADER & NAV */
+        header, nav, .ust-menu, .logo {
+            /* index.html'deki stil aynen kopyalanacak */
+        }
+        
+        /* YAZAR BANNER */
+        .yazar-banner {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/yasar-kemal-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--beyaz);
+            padding: 100px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .yazar-banner h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        .yazar-banner p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* İÇERİK ALANI */
+        .icerik {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        .yazar-bilgileri {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .yazar-portre {
+            background: var(--beyaz);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .yazar-portre img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .yazar-ozet {
+            background: var(--beyaz);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .yazar-ozet h2 {
+            color: var(--kirmizi);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--kirmizi);
+            padding-bottom: 10px;
+        }
+        .bilgi-karti {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .bilgi-etiket {
+            min-width: 120px;
+            font-weight: bold;
+            color: var(--kirmizi);
+        }
+        
+        /* ESERLER BÖLÜMÜ */
+        .eserler-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .eser-karti {
+            background: var(--beyaz);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .eser-karti:hover {
+            transform: translateY(-5px);
+        }
+        .eser-kapak {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .eser-kapak::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        }
+        .eser-adi {
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            color: var(--beyaz);
+            font-size: 22px;
+            font-weight: bold;
+            z-index: 1;
+        }
+        .eser-detay {
+            padding: 25px;
+        }
+        .eser-ozellik {
+            margin-bottom: 12px;
+        }
+        .eser-ozellik span {
+            font-weight: bold;
+            color: var(--kirmizi);
+            display: inline-block;
+            min-width: 80px;
+        }
+        
+        /* ÜSLUP BÖLÜMÜ */
+        .uslup-bolum {
+            background: var(--beyaz);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 50px;
+        }
+        .uslup-bolum h2 {
+            color: var(--kirmizi);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .uslup-ozellikler {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .uslup-ozellik {
+            background: var(--gri);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .uslup-ozellik h3 {
+            color: var(--kirmizi);
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .yazar-bilgileri {
+                grid-template-columns: 1fr;
+            }
+            .eserler-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ÜST MENÜ -->
+    <div class="ust-menu">
+        <div class="ust-menu-container">
+            <div>Edebiyat, Kültür ve Sanat Portalı</div>
+            <div>Takip Edin: [Sosyal Medya İkonları]</div>
+        </div>
+    </div>
+    
+    <!-- LOGO -->
+    <div class="logo">EDEBİYAT DÜNYASI</div>
+    
+    <!-- NAVİGASYON -->
+    <nav>
+        <ul>
+            <li><a href="index.html">ANASAYFA</a></li>
+            <li><a href="edebiyat-nedir.html">EDEBİYAT</a></li>
+            <li><a href="site-amaci.html">SİTE NEDEN VAR?</a></li>
+            <li><a href="dunya-klasikleri.html">KLASİKLER</a></li>
+            <li><a href="cagdas-edebiyat.html">ÇAĞDAŞ ESERLER</a></li>
+            <li><a href="siir-ve-yazar.html">ŞİİR</a></li>
+            <li><a href="yasar-kemal.html" class="aktif">YAŞAR KEMAL</a></li>
+            <li><a href="nobel-odulu.html">NOBEL</a></li>
+        </ul>
+    </nav>
+    
+    <!-- YAZAR BANNER -->
+    <div class="yazar-banner">
+        <h1>Yaşar Kemal</h1>
+        <p>Anadolu'nun sesi, büyük usta</p>
+    </div>
+    
+    <!-- İÇERİK -->
+    <main class="icerik">
+        <div class="yazar-bilgileri">
+            <div class="yazar-portre">
+                <img src="images/yasar-kemal-portre.jpg" alt="Yaşar Kemal Portresi">
+                <h3>Kemal Sadık Gökçeli</h3>
+                <p>(1923-2015)</p>
+            </div>
+            
+            <div class="yazar-ozet">
+                <h2>Yaşamı ve Edebi Kişiliği</h2>
+                <div class="bilgi-karti">
+                    <div class="bilgi-etiket">Doğum:</div>
+                    <div>1923, Osmaniye (Gökçedam Köyü)</div>
+                </div>
+                <div class="bilgi-karti">
+                    <div class="bilgi-etiket">Ölüm:</div>
+                    <div>2015, İstanbul</div>
+                </div>
+                <div class="bilgi-karti">
+                    <div class="bilgi-etiket">Türler:</div>
+                    <div>Roman, röportaj, hikâye</div>
+                </div>
+                <div class="bilgi-karti">
+                    <div class="bilgi-etiket">Özelliği:</div>
+                    <div>Anadolu'nun sesini dünyaya duyuran en önemli Türk romancılarından biri</div>
+                </div>
+                <div class="bilgi-karti">
+                    <div class="bilgi-etiket">Ödüller:</div>
+                    <div>Nobel Edebiyat Ödülü'ne aday gösterilen ilk Türk yazar, birçok ulusal ve uluslararası ödülün sahibi</div>
+                </div>
+                
+                <p style="margin-top: 20px;">Yaşar Kemal, Çukurova'nın ve Anadolu insanının yaşamını destansı bir dille anlatan, Türk edebiyatının en önemli isimlerindendir. Eserlerinde toplumsal adaletsizlik, doğa sevgisi ve insanın direnişini işlemiştir.</p>
+            </div>
+        </div>
+        
+        <h2 style="color: var(--kirmizi); border-bottom: 2px solid var(--kirmizi); padding-bottom: 10px;">Başlıca Eserleri</h2>
+        
+        <div class="eserler-grid">
+            <!-- İNCE MEMED -->
+            <div class="eser-karti">
+                <div class="eser-kapak" style="background-image: url('images/ince-memed.jpg');">
+                    <div class="eser-adi">İnce Memed</div>
+                </div>
+                <div class="eser-detay">
+                    <div class="eser-ozellik">
+                        <span>Yıl:</span> 1955
+                    </div>
+                    <div class="eser-ozellik">
+                        <span>Konu:</span> Bir köylü gencin zalim ağa Abdi Ağa'ya karşı isyanı
+                    </div>
+                    <div class="eser-ozellik">
+                        <span>Duygular:</span> Direniş, özgürlük, adalet
+                    </div>
+                    <div class="eser-ozellik">
+                        <span>Üslup:</span> Destansı anlatım, halk ağzı, doğa betimlemeleri
+                    </div>
+                </div>
+            </div>
+            
+            <!-- YER DEMİR GÖK BAKIR -->
+            <div class="eser-karti">
+                <div class="eser-kapak" style="background-image: url('images/yer-demir.jpg');">
+                    <div class="eser-adi">Yer Demir Gök Bakır</div>
+                </div>
+                <div class="eser-detay">
+                    <div class="eser-ozellik">
+                        <span>Konu:</span> Köylülerin inançla beslenen dayanışması
+                    </div>
+                    <div class="eser-ozellik">
+                        <span>Duygular:</span> Umut, hayal kırıklığı, iman
+                    </div>
+                    <div class="eser-ozellik">
+                        <span>Üslup:</span> Mitolojik öğeler, epik hava
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DEMİRCİLER ÇARŞISI CİNAYETİ -->
+            <div class="eser-karti">
+                <div class="eser-kapak" style="background-image: url('images/demirciler.jpg');">
+                    <div class="eser-adi">Demirciler Çarşısı Cinayeti</div>
+                </div>
+                <div class="eser-detay">
+                    <div class="eser-ozellik">
+                        <span>Konu:</span> Feodal yapının birey üzerindeki baskısı
+                    </div>
+                    <div class="eser-ozellik">
+                        <span>Duygular:</span> Çaresizlik, onur, adalet arayışı
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BİNBOĞALAR EFSANESİ -->
+            <div class="eser-karti">
+                <div class="eser-kapak" style="background-image: url('images/binbogalar.jpg');">
+                    <div class="eser-adi">Binboğalar Efsanesi</div>
+                </div>
+                <div class="eser-detay">
+                    <div class="eser-ozellik">
+                        <span>Konu:</span> Göçebe Yörüklerin yaşamı ve doğa ile ilişkisi
+                    </div>
+                    <div class="eser-ozellik">
+                        <span>Üslup:</span> Lirik ve anlatımsal yoğunluk, destansı yapı
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- DİĞER ESERLER -->
+        <div style="margin-top: 30px;">
+            <h3>Diğer Önemli Eserleri:</h3>
+            <p>Ağrıdağı Efsanesi, Kuşlar da Gitti, Filler Sultanı ile Kırmızı Sakallı Topal Karınca</p>
+        </div>
+        
+        <!-- ÜSLUP BÖLÜMÜ -->
+        <div class="uslup-bolum">
+            <h2>Yaşar Kemal'in Üslubu ve Duygu Dünyası</h2>
+            <div class="uslup-ozellikler">
+                <div class="uslup-ozellik">
+                    <h3>Üslup</h3>
+                    <p>Epik, şiirsel ve halk anlatısı ile iç içe</p>
+                </div>
+                <div class="uslup-ozellik">
+                    <h3>Dil</h3>
+                    <p>Halk dili, deyimler ve atasözleri yoğun kullanılır</p>
+                </div>
+                <div class="uslup-ozellik">
+                    <h3>Temalar</h3>
+                    <p>Adalet, doğa, yoksulluk, eşitlik, halk mücadelesi</p>
+                </div>
+                <div class="uslup-ozellik">
+                    <h3>Doğa Tasviri</h3>
+                    <p>Türkiye edebiyatında eşi az bulunur betimlemeler</p>
+                </div>
+                <div class="uslup-ozellik">
+                    <h3>Anadolu İnsanı</h3>
+                    <p>Eserlerinin merkezinde yoksul ama onurlu köylü vardır</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Hakkımızda</a>
+            <a href="#">İletişim</a>
+            <a href="#">Reklam</a>
+        </div>
+        <div class="copyright">
+            © 2023 Edebiyat Dünyası - Tüm hakları saklıdır
+        </div>
+    </footer>
+</body>
+</html>

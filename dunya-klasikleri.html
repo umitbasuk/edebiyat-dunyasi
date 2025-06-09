@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dünya Klasikleri | Edebiyat Dünyası</title>
+    <style>
+        /* ANA TEMA */
+        :root {
+            --kirmizi: #d10a11;
+            --siyah: #222;
+            --beyaz: #fff;
+            --gri: #f5f5f5;
+            --gri-koyu: #e0e0e0;
+        }
+        
+        /* GENEL STİLLER */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background: var(--gri);
+            color: var(--siyah);
+            line-height: 1.6;
+        }
+        
+        /* HEADER & NAV (index.html ile tutarlı) */
+        header, nav, .ust-menu, .logo {
+            /* index.html'deki stil aynen kopyalanacak */
+        }
+        
+        /* ÖZEL STİLLER */
+        .klasik-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('images/klasikler-bg.jpg');
+            background-size: cover;
+            color: var(--beyaz);
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .donem-tablar {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .donem-tab {
+            padding: 12px 25px;
+            background: var(--gri-koyu);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-radius: 5px;
+        }
+        
+        .donem-tab.active {
+            background: var(--kirmizi);
+            color: var(--beyaz);
+        }
+        
+        .yazar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .yazar-karti {
+            background: var(--beyaz);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: none; /* Başlangıçta gizli */
+        }
+        
+        .yazar-karti.active {
+            display: block; /* Sadece aktif dönemdekiler görünsün */
+        }
+        
+        .yazar-karti:hover {
+            transform: translateY(-5px);
+        }
+        
+        .yazar-resim {
+            height: 200px;
+            background-size: cover;
+            background-position: top;
+        }
+        
+        .yazar-bilgi {
+            padding: 20px;
+        }
+        
+        .yazar-baslik {
+            color: var(--kirmizi);
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+        
+        .eser-listesi {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+        
+        .eser-listesi li {
+            margin-bottom: 8px;
+        }
+        
+        .alinti {
+            font-style: italic;
+            border-left: 3px solid var(--kirmizi);
+            padding-left: 20px;
+            margin: 25px 0;
+            color: #555;
+        }
+        
+        .donem-aciklama {
+            background: var(--beyaz);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+        .donem-aciklama.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- ÜST MENÜ -->
+    <div class="ust-menu">
+        <div class="ust-menu-container">
+            <div>Edebiyat, Kültür ve Sanat Portalı</div>
+            <div>Takip Edin: [Sosyal Medya İkonları]</div>
+        </div>
+    </div>
+    
+    <!-- LOGO -->
+    <div class="logo">EDEBİYAT DÜNYASI</div>
+    
+    <!-- NAVİGASYON -->
+    <nav>
+        <ul>
+            <li><a href="index.html">ANASAYFA</a></li>
+            <li><a href="edebiyat-nedir.html">EDEBİYAT</a></li>
+            <li><a href="dunya-klasikleri.html" class="aktif">KLASİKLER</a></li>
+            <li><a href="cagdas-edebiyat.html">ÇAĞDAŞ ESERLER</a></li>
+            <li><a href="siir-ve-yazar.html">ŞİİR</a></li>
+            <li><a href="yasar-kemal.html">YAŞAR KEMAL</a></li>
+            <li><a href="nobel-odulu.html">NOBEL</a></li>
+        </ul>
+    </nav>
+    
+    <!-- BAŞLIK BÖLÜMÜ -->
+    <section class="klasik-header">
+        <h1>Dünya Edebiyatının Ölümsüz Klasikleri</h1>
+        <p>19. yüzyıldan günümüze tüm zamanların en etkileyici eserleri</p>
+    </section>
+    
+    <!-- İÇERİK -->
+    <main class="icerik">
+        <div class="donem-tablar">
+            <button class="donem-tab active" data-donem="yuz-yil-19">19. Yüzyıl</button>
+            <button class="donem-tab" data-donem="yuz-yil-20">20. Yüzyıl Başı</button>
+            <button class="donem-tab" data-donem="modern">Modern Klasikler</button>
+            <button class="donem-tab" data-donem="rus">Rus Edebiyatı</button>
+        </div>
+        
+        <!-- DÖNEM AÇIKLAMALARI -->
+        <div class="donem-aciklama active" id="yuz-yil-19-aciklama">
+            <h2>19. Yüzyıl Klasikleri</h2>
+            <p>Sanayi Devrimi ve toplumsal değişimlerin edebiyata yansıdığı dönem. Realizm ve Romantizm akımlarının zirve yaptığı yıllar.</p>
+        </div>
+        
+        <div class="donem-aciklama" id="yuz-yil-20-aciklama">
+            <h2>20. Yüzyıl Başı Eserleri</h2>
+            <p>Modernizmin doğuşu, bireyin iç dünyasına yönelme ve geleneksel anlatım tekniklerinin sorgulandığı dönem.</p>
+        </div>
+        
+        <div class="donem-aciklama" id="modern-aciklama">
+            <h2>Modern Klasikler</h2>
+            <p>1945 sonrası dünya edebiyatı. Varoluşçuluk, postmodernizm ve deneysel tekniklerin öne çıktığı eserler.</p>
+        </div>
+        
+        <div class="donem-aciklama" id="rus-aciklama">
+            <h2>Rus Edebiyatı</h2>
+            <p>"Ruhun derinliklerine inen" olarak tanımlanan Rus edebiyatı, insan psikolojisini en iyi yansıtan eserleri sunar.</p>
+        </div>
+        
+        <!-- YAZAR GRID -->
+        <div class="yazar-grid">
+            <!-- 19. YÜZYIL YAZARLARI -->
+            <div class="yazar-karti active" data-donem="yuz-yil-19">
+                <div class="yazar-resim" style="background-image: url('images/dostoyevski.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h3 class="yazar-baslik">Fyodor Dostoyevski</h3>
+                    <p>Rus edebiyatının psikolojik derinlikteki ustası. İnsan ruhunun karanlık dehlizlerini keşfeden eserleriyle tanınır.</p>
+                    
+                    <div class="alinti">
+                        "İnsan her yerde aynı insandır. Tek fark, bazılarının bunu itiraf edebilmesidir."
+                    </div>
+                    
+                    <ul class="eser-listesi">
+                        <li><strong>Suç ve Ceza</strong> (1866)</li>
+                        <li><strong>Karamazov Kardeşler</strong> (1880)</li>
+                        <li><strong>Budala</strong> (1869)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="yazar-karti active" data-donem="yuz-yil-19">
+                <div class="yazar-resim" style="background-image: url('images/tolstoy.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h3 class="yazar-baslik">Lev Tolstoy</h3>
+                    <p>Epik romanların mimarı. Savaş ve Barış ile insanlık durumunu evrensel boyutta ele almıştır.</p>
+                    
+                    <div class="alinti">
+                        "Tüm mutlu aileler birbirine benzer; her mutsuz ailenin ise kendine özgü bir mutsuzluğu vardır."
+                    </div>
+                    
+                    <ul class="eser-listesi">
+                        <li><strong>Savaş ve Barış</strong> (1869)</li>
+                        <li><strong>Anna Karenina</strong> (1877)</li>
+                        <li><strong>İvan İlyiç'in Ölümü</strong> (1886)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="yazar-karti active" data-donem="yuz-yil-19">
+                <div class="yazar-resim" style="background-image: url('images/victor-hugo.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h3 class="yazar-baslik">Victor Hugo</h3>
+                    <p>Fransız romantizminin dev ismi. Toplumsal adaletsizliği eserlerinde ustalıkla işlemiştir.</p>
+                    
+                    <div class="alinti">
+                        "Müzik, duyulamayanı söyler; resim, görünmeyeni gösterir."
+                    </div>
+                    
+                    <ul class="eser-listesi">
+                        <li><strong>Sefiller</strong> (1862)</li>
+                        <li><strong>Notre Dame'ın Kamburu</strong> (1831)</li>
+                        <li><strong>Deniz İşçileri</strong> (1866)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 20. YÜZYIL BAŞI YAZARLARI -->
+            <div class="yazar-karti" data-donem="yuz-yil-20">
+                <div class="yazar-resim" style="background-image: url('images/kafka.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h3 class="yazar-baslik">Franz Kafka</h3>
+                    <p>Modern edebiyatın karanlık dehası. Bürokrasi ve yabancılaşma temalarını işlemiştir.</p>
+                    
+                    <div class="alinti">
+                        "Bir kitap, donmuş zihnimize balta gibi inmeli."
+                    </div>
+                    
+                    <ul class="eser-listesi">
+                        <li><strong>Dönüşüm</strong> (1915)</li>
+                        <li><strong>Dava</strong> (1925)</li>
+                        <li><strong>Şato</strong> (1926)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="yazar-karti" data-donem="yuz-yil-20">
+                <div class="yazar-resim" style="background-image: url('images/hemingway.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h3 class="yazar-baslik">Ernest Hemingway</h3>
+                    <p>Buzdağı teorisiyle minimalist anlatımın ustası. Savaş ve macera temalı eserleriyle tanınır.</p>
+                    
+                    <div class="alinti">
+                        "İnsan yenilgiye uğrayabilir ama asla yenilmemelidir."
+                    </div>
+                    
+                    <ul class="eser-listesi">
+                        <li><strong>Çanlar Kimin İçin Çalıyor</strong> (1940)</li>
+                        <li><strong>İhtiyar Adam ve Deniz</strong> (1952)</li>
+                        <li><strong>Silahlara Veda</strong> (1929)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="yazar-karti" data-donem="yuz-yil-20">
+                <div class="yazar-resim" style="background-image: url('images/virginia-woolf.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h3 class="yazar-baslik">Virginia Woolf</h3>
+                    <p>Bilinç akışı tekniğinin öncüsü. Kadın hakları ve psikolojik derinlik temalarını işlemiştir.</p>
+                    
+                    <div class="alinti">
+                        "Kadın olmak için kendi paranız ve ayrı bir odanız olmalı."
+                    </div>
+                    
+                    <ul class="eser-listesi">
+                        <li><strong>Mrs. Dalloway</strong> (1925)</li>
+                        <li><strong>Deniz Feneri</strong> (1927)</li>
+                        <li><strong>Kendine Ait Bir Oda</strong> (1929)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- MODERN KLASİKLER -->
+            <div class="yazar-karti" data-donem="modern">
+                <div class="yazar-resim" style="background-image: url('images/marquez.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h3 class="yazar-baslik">Gabriel García Márquez</h3>
+                    <p>Büyülü gerçekçiliğin ustası. Latin Amerika'nın renkli dünyasını evrensele taşımıştır.</p>
+                    
+                    <div class="alinti">
+                        "Hayat, insanın yaşadığı değil, hatırladığı ve anlatmak için nasıl hatırladığıdır."
+                    </div>
+                    
+                    <ul class="eser-listesi">
+                        <li><strong>Yüzyıllık Yalnızlık</strong> (1967)</li>
+                        <li><strong>Kolera Günlerinde Aşk</strong> (1985)</li>
+                        <li><strong>Kırmızı Pazartesi</strong> (1981)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="yazar-karti" data-donem="modern">
+                <div class="yazar-resim" style="background-image: url('images/orhan-pamuk.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h3 class="yazar-baslik">Orhan Pamuk</h3>
+                    <p>Nobel ödüllü Türk yazar. Doğu-Batı çatışmasını ve İstanbul'un ruhunu eserlerine yansıtmıştır.</p>
+                    
+                    <div class="alinti">
+                        "Okumak, bir başkasının beyninde dolaşmaktır."
+                    </div>
+                    
+                    <ul class="eser-listesi">
+                        <li><strong>Kara Kitap</strong> (1990)</li>
+                        <li><strong>Benim Adım Kırmızı</strong> (1998)</li>
+                        <li><strong>Kar</strong> (2002)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- RUS EDEBİYATI -->
+            <div class="yazar-karti" data-donem="rus">
+                <div class="yazar-resim" style="background-image: url('images/chekhov.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h3 class="yazar-baslik">Anton Çehov</h3>
+                    <p>Modern öykücülüğün babası. Küçük ayrıntılarda büyük anlamlar yakalamıştır.</p>
+                    
+                    <div class="alinti">
+                        "Eğer korktuğun şeylerin sayısı artıyorsa, o zaman yaşlanıyorsun demektir."
+                    </div>
+                    
+                    <ul class="eser-listesi">
+                        <li><strong>Vişne Bahçesi</strong> (1904)</li>
+                        <li><strong>Altıncı Koğuş</strong> (1892)</li>
+                        <li><strong>Martı</strong> (1896)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="yazar-karti" data-donem="rus">
+                <div class="yazar-resim" style="background-image: url('images/gogol.jpg');"></div>
+                <div class="yazar-bilgi">
+                    <h3 class="yazar-baslik">Nikolay Gogol</h3>
+                    <p>Rus gerçekçiliğinin kurucusu. Toplumsal eleştiri ve mizahı ustaca harmanlamıştır.</p>
+                    
+                    <div class="alinti">
+                        "İnsan ne kadar çok kelime bilirse, o kadar etkileyici konuşur."
+                    </div>
+                    
+                    <ul class="eser-listesi">
+                        <li><strong>Ölü Canlar</strong> (1842)</li>
+                        <li><strong>Palto</strong> (1842)</li>
+                        <li><strong>Bir Delinin Hatıra Defteri</strong> (1835)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Hakkımızda</a>
+            <a href="#">İletişim</a>
+            <a href="#">Reklam</a>
+        </div>
+        <div class="copyright">
+            © 2023 Edebiyat Dünyası - Tüm hakları saklıdır
+        </div>
+    </footer>
+
+    <script>
+        // Dönem Filtreleme Sistemi
+        document.querySelectorAll('.donem-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Aktif tabı değiştir
+                document.querySelector('.donem-tab.active').classList.remove('active');
+                tab.classList.add('active');
+                
+                const donem = tab.getAttribute('data-donem');
+                
+                // Tüm yazarları gizle
+                document.querySelectorAll('.yazar-karti').forEach(kart => {
+                    kart.classList.remove('active');
+                });
+                
+                // Tüm açıklamaları gizle
+                document.querySelectorAll('.donem-aciklama').forEach(aciklama => {
+                    aciklama.classList.remove('active');
+                });
+                
+                // Seçili döneme ait yazarları göster
+                document.querySelectorAll(`.yazar-karti[data-donem="${donem}"]`).forEach(kart => {
+                    kart.classList.add('active');
+                });
+                
+                // Seçili dönem açıklamasını göster
+                document.getElementById(`${donem}-aciklama`).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

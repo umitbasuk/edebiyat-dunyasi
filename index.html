@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edebiyat Dünyası | Kültür ve Sanat Portalı</title>
+    <style>
+        /* OGGİTO TARZI MODERN TASARIM */
+        :root {
+            --kirmizi: #d10a11;
+            --siyah: #222;
+            --beyaz: #fff;
+            --gri: #f5f5f5;
+            --gri-koyu: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background: var(--gri);
+            color: var(--siyah);
+            line-height: 1.6;
+        }
+        
+        /* HEADER */
+        header {
+            background: var(--beyaz);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .ust-menu {
+            background: var(--siyah);
+            color: var(--beyaz);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .ust-menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--kirmizi);
+            padding: 15px 0;
+            text-align: center;
+        }
+        
+        /* NAV MENÜ */
+        nav {
+            border-top: 1px solid var(--gri-koyu);
+            border-bottom: 1px solid var(--gri-koyu);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav li {
+            position: relative;
+        }
+        
+        nav a {
+            color: var(--siyah);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 15px 20px;
+            display: block;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--kirmizi);
+        }
+        
+        /* HERO BANNER */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--beyaz);
+            padding: 120px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* KATEGORİ KARTLARI */
+        .kategori-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1300px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+        
+        .kategori-karti {
+            background: var(--beyaz);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .kategori-karti:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        
+        .kategori-resim {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .kategori-icerik {
+            padding: 25px;
+        }
+        
+        .kategori-icerik h3 {
+            color: var(--kirmizi);
+            margin-bottom: 12px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        
+        .kategori-icerik p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .devam-link {
+            color: var(--kirmizi);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .devam-link:hover {
+            text-decoration: underline;
+        }
+        
+        .devam-link::after {
+            content: "→";
+            margin-left: 5px;
+            transition: margin 0.3s;
+        }
+        
+        .devam-link:hover::after {
+            margin-left: 10px;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--siyah);
+            color: var(--beyaz);
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--beyaz);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--kirmizi);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            
+            nav li {
+                flex: 1;
+                text-align: center;
+            }
+            
+            nav a {
+                padding: 15px 10px;
+                font-size: 14px;
+            }
+            
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .kategori-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ÜST MENÜ -->
+    <div class="ust-menu">
+        <div class="ust-menu-container">
+            <div>Edebiyat, Kültür ve Sanat Portalı</div>
+            <div>Takip Edin: [Sosyal Medya İkonları]</div>
+        </div>
+    </div>
+    
+    <!-- LOGO -->
+    <div class="logo">EDEBİYAT DÜNYASI</div>
+    
+    <!-- NAVİGASYON -->
+    <nav>
+        <ul>
+            <li><a href="index.html">ANASAYFA</a></li>
+            <li><a href="edebiyat-nedir.html">EDEBİYAT</a></li>
+            <li><a href="dunya-klasikleri.html">KLASİKLER</a></li>
+            <li><a href="cagdas-edebiyat.html">ÇAĞDAŞ ESERLER</a></li>
+            <li><a href="siir-ve-yazar.html">ŞİİR</a></li>
+            <li><a href="yasar-kemal.html">YAŞAR KEMAL</a></li>
+            <li><a href="nobel-odulu.html">NOBEL</a></li>
+        </ul>
+    </nav>
+    
+    <!-- HERO BANNER -->
+    <section class="hero">
+        <h1>Edebiyatın İzinde</h1>
+        <p>Klasiklerden günümüze, yerelden evrensele edebiyatın büyülü dünyası</p>
+    </section>
+    
+    <!-- KATEGORİLER -->
+    <div class="kategori-grid">
+        <!-- 1. KART -->
+        <div class="kategori-karti">
+            <div class="kategori-resim" style="background-image: url('images/edebiyat-nedir.jpg');"></div>
+            <div class="kategori-icerik">
+                <h3>Edebiyat Nedir?</h3>
+                <p>Duygu, düşünce ve hayallerin estetik ifadesi. Edebiyatın temel özellikleri ve türleri.</p>
+                <a href="edebiyat-nedir.html" class="devam-link">Devamını Oku</a>
+            </div>
+        </div>
+        
+        <!-- 2. KART -->
+        <div class="kategori-karti">
+            <div class="kategori-resim" style="background-image: url('images/site-amaci.jpg');"></div>
+            <div class="kategori-icerik">
+                <h3>Site Neden Var?</h3>
+                <p>Edebiyat severler için bilgi kaynağı, eser analizleri ve yazar-okuyucu buluşma noktası.</p>
+                <a href="site-amaci.html" class="devam-link">Devamını Oku</a>
+            </div>
+        </div>
+        
+        <!-- 3. KART -->
+        <div class="kategori-karti">
+            <div class="kategori-resim" style="background-image: url('images/dunya-klasikleri.jpg');"></div>
+            <div class="kategori-icerik">
+                <h3>Dünya Klasikleri</h3>
+                <p>Dostoyevski, Tolstoy, Shakespeare gibi ustaların ölümsüz eserleri ve yazarları.</p>
+                <a href="dunya-klasikleri.html" class="devam-link">Devamını Oku</a>
+            </div>
+        </div>
+        
+        <!-- 4. KART -->
+        <div class="kategori-karti">
+            <div class="kategori-resim" style="background-image: url('images/cagdas-eserler.jpg');"></div>
+            <div class="kategori-icerik">
+                <h3>Çağdaş Eserler</h3>
+                <p>Günümüzün öne çıkan yazarları: Orhan Pamuk, Elif Şafak, Haruki Murakami ve eserleri.</p>
+                <a href="cagdas-edebiyat.html" class="devam-link">Devamını Oku</a>
+            </div>
+        </div>
+        
+        <!-- 5. KART -->
+        <div class="kategori-karti">
+            <div class="kategori-resim" style="background-image: url('images/siir-dunyasi.jpg');"></div>
+            <div class="kategori-icerik">
+                <h3>Şiir ve Yazar</h3>
+                <p>Şiirin tanımı, özellikleri ve unutulmaz şairler. Yazar olmanın incelikleri.</p>
+                <a href="siir-ve-yazar.html" class="devam-link">Devamını Oku</a>
+            </div>
+        </div>
+        
+        <!-- 6. KART -->
+        <div class="kategori-karti">
+            <div class="kategori-resim" style="background-image: url('images/yasar-kemal.jpg');"></div>
+            <div class="kategori-icerik">
+                <h3>Yaşar Kemal</h3>
+                <p>Anadolu'nun sesi büyük usta: İnce Memed'den Binboğalar Efsanesi'ne eserleri ve üslubu.</p>
+                <a href="yasar-kemal.html" class="devam-link">Devamını Oku</a>
+            </div>
+        </div>
+        
+        <!-- 7. KART -->
+        <div class="kategori-karti">
+            <div class="kategori-resim" style="background-image: url('images/nobel-odulu.jpg');"></div>
+            <div class="kategori-icerik">
+                <h3>Nobel Edebiyat</h3>
+                <p>Nobel ödüllü yazarlar, kriterler ve edebiyat dünyasının en prestijli ödülü.</p>
+                <a href="nobel-odulu.html" class="devam-link">Devamını Oku</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Hakkımızda</a>
+            <a href="#">İletişim</a>
+            <a href="#">Reklam</a>
+            <a href="#">Kullanım Koşulları</a>
+            <a href="#">Gizlilik Politikası</a>
+        </div>
+        <div class="copyright">
+            © 2023 Edebiyat Dünyası - Tüm hakları saklıdır
+        </div>
+    </footer>
+</body>
+</html>
